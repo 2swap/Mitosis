@@ -1,8 +1,4 @@
-if (location.protocol != 'http:')
-	location.href = 'http:' + window.location.href.substring(window.location.protocol.length);
-//require('https').globalAgent.options.rejectUnauthorized = false;
-
-var socket = io('torn.space:7100');
+var socket = io('alexhontz.com', {path: '/pps/io'});
 
 var canvas = document.getElementById('ctx');
 canvas.width = window.innerWidth;
@@ -60,13 +56,13 @@ function loadImage (name, src) {
 	Img[name].src = src;
 }
 function loadAllImages(){
-	loadImage("redvirus", '/img/redvirus.png');
-	loadImage("bluevirus", '/img/bluevirus.png');
-	loadImage("greenvirus", '/img/greenvirus.png');
-	loadImage("yellowvirus", '/img/yellowvirus.png');
-	loadImage("cilia", '/img/cilia.png');
-	loadImage("meta", '/img/meta.png');
-	loadImage("ana", '/img/ana.png');
+	loadImage("redvirus", '/mitosis/img/redvirus.png');
+	loadImage("bluevirus", '/mitosis/img/bluevirus.png');
+	loadImage("greenvirus", '/mitosis/img/greenvirus.png');
+	loadImage("yellowvirus", '/mitosis/img/yellowvirus.png');
+	loadImage("cilia", '/mitosis/img/cilia.png');
+	loadImage("meta", '/mitosis/img/meta.png');
+	loadImage("ana", '/mitosis/img/ana.png');
 }
 
 

@@ -1,14 +1,15 @@
-var http = require('http');
 var express = require('express');
 var app = express();
+const socketio = require('socket.io');
+
+var port = 10004;
 
 console.log('Server started');
 console.log('Enabling express...');
-app.use('/',express.static(__dirname + '/client'));
-var httpServer = http.createServer(app);
-httpServer.listen(7100);
-console.log("Express started");
-var io = require('socket.io')(httpServer);
+app.use('/mitosis',express.static(__dirname + '/client'));
+console.log("Express started on port " + port);
+var server = app.listen(port);
+const io = socketio.listen(server, {"path":"/mitosis/io"})
 
 var players = {};
 var sockets = {};
